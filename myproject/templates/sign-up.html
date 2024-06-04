@@ -1,0 +1,32 @@
+{% extends 'base.html'%}
+{% block start %}
+<div class="container-fluid">
+    <h1 class="text-center">Welcome to GoFundMe</h1>
+    <h2 class="text-center">Create an account</h2>
+    <form class="mt-5 w-50 mx-auto" method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      <div class="form-group">
+        <input type="text" class="form-control" name="firstName" placeholder="Enter first name">
+      </div><br>
+      <div class="form-group">
+        <input type="text" class="form-control" name="lastName" placeholder="Enter last name">
+      </div><br>
+      <div class="form-group">
+        <input type="email" class="form-control" name="email" placeholder="Enter email">
+      </div><br>
+      <div class="form-group">
+        <input type="password" class="form-control" name="password" placeholder="Enter password">
+      </div><br>
+      <div class="form-group">
+        <input type="password" class="form-control" name="confirmPassword" placeholder="Confirm Password">
+      </div><br>
+      <button type="submit" class="btn btn-primary btn-block">Sign Up</button>
+    </form>
+    <div class="text-center mt-3">
+      <a href="{% url 'core:sign_in' %}" class="text-primary">Already have an account? Sign in</a>
+    </div>
+    <div class="text-center mt-3">
+      <p>By clicking the Sign Up button below, you agree to the GoFundMe <a href="#" class="text-primary">Terms of Service</a> and acknowledge the Privacy Notice.</p>
+    </div>
+  </div>
+{% endblock %}

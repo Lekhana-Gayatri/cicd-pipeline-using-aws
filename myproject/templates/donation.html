@@ -1,0 +1,45 @@
+{% extends 'base.html'%}
+{%  block start %}
+<div class="container">
+    <h1 class="text-center">Donation Form</h1>
+    <form class="mt-7 w-50 mx-auto" id="create-fundraiser-form" method="post" enctype="multipart/form-data">
+        {% csrf_token %}      
+
+        <div class="mb-3">
+            <label for="category">Category</label><br><br>
+            <select class="form-control" name="category">
+                <option value="charity">Charity</option>
+                <option value="medical">Medical</option>
+                <option value="education">Education</option>
+                <option value="emergency">Emergency</option>
+                <option value="startup">Startup</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="type">Who are you fundraising for?</label><br><br>
+            <select class="form-control" name="type">
+            <option value="yourself">Yourself</option>
+                <option value="someone_else">Someone Else</option>
+                <option value="charity">Charity</option>
+            </select>
+        </div><br>
+        <div class="mb-3">
+            <input type="number" class="form-control" name="amount" placeholder="You starting Goal..">
+        </div>
+        <div class="mb-3">
+            <label for="formFile" class="form-label">Add a cover photo or video</label><br><br>
+            <input class="form-control" type="file" name="formFile">
+          </div><br>
+          <div class="mb-3">
+            <input type="text" class="form-control" name="title" placeholder="Enter a Title for Fund">
+        </div><br>
+        <div class="mb-3">
+            <textarea class="form-control" name="story" rows="4" placeholder="Tell your Story.."></textarea>
+        </div><br>
+        <div class="mb-3">
+            <input type="text" class="form-control" name="phone" placeholder="Phone Number">
+        </div><br>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+{% endblock %}

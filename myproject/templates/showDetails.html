@@ -1,0 +1,60 @@
+{% extends 'base.html'%}
+{% block start %}
+<div class="row">
+
+    <div class="col-md-8">
+        <div class="card w-80" >
+            <h3 class="w-80 text-center" >{{f.title}}"</h3> 
+            <img class="card-image w-50 h-20" style="margin-left: 25%;margin-top: 2%;margin-bottom: 5%;" src="/media/{{f.photo}}">
+        <div class="card-body " >
+            <div class="">{{f.username}} is organising this fund</div><hr>
+            <div id="accordionExample" class="accordion" style="margin-top: 2rem;">
+                <div class="accordion-item">
+                    <div>
+                        {% if story_length < 400 %}
+                        <div class="accordion-body">
+                            {{f.story}}
+                        </div>
+                        {% else %}
+                        <span >{{f.story|slice:"0:400"}}</span>
+                        <span  id="collapseOne" class="accordion-collapse collapse hide" data-bs-parent="#accordionExample">{{f.story|slice:"400:"}}</span>
+                    </div>
+                    <h2 class="accordion-header">    
+                        <a class="btn btn-outline-secondary"  data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            Read More
+                        </a>
+                    </h2>
+                    {% endif %}
+                </div>
+            </div><hr>
+        </div>
+    </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card w-100"  >
+            <div class="card-body">
+            <div class="row">
+                <div class="col-md-12" >
+                    <p class="mb-3"><span class="text-success">{{f.present_fund}} </span> out of {{f.goal}}</p>
+                    <div class="progress mb-3" role="progressbar"  aria-valuenow="5" aria-valuemin="0" aria-valuemax="100" style="height: 5px;">
+                        <div class="progress-bar w-{{percent}} bg-success" ></div>
+                    </div>
+                    <div>
+                        <a href="#" class="btn btn-primary">Donate now</a>
+                        <a href="#" class="btn btn-outline-success">Share</a>
+                    </div><br>
+                    <p class="card-text text-primary "> {{f.NoDonations}} people just donated</p>
+                    <p class="card-text text-success ">Top Donors</p>
+                    <ul style="list-style: None;">
+                        <li><div> username : 15$</div></li>
+                        <li><div> username : 11$</div></li>
+                        <li><div> username : 10$</div></li>
+                    </ul>
+                    <a href="#" class="btn btn-outline-secondary w-100">See all</a>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

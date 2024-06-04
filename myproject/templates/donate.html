@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block start %}
+<div class="row">
+<div class="col-md-3"></div>
+<div class="col-md-6">
+
+  <div class="card" style="width: 38rem;">
+    <div class="card-body">
+      <h5 class="card-title">Donation Form</h5>
+      <p class="card-text">
+        <form>
+          <div class="form-group">
+            <label for="donationAmount">Enter your donation</label><br><br>
+            <input type="text" class="form-control" id="donationAmount" placeholder="0.00" aria-label=" Donation amount"><br>
+            <small id="donationHelp" class="form-text text-muted">Please enter a donation amount more than Rs.500</small>
+          </div>
+          
+          
+        </form>
+      </p>
+    </div>
+  </div>
+  </div>
+  <div class="col-md-3"></div>
+</div>
+{% endblock %}

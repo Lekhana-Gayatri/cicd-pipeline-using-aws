@@ -1,0 +1,22 @@
+{% extends 'base.html'%}
+{% block start %}
+    <div class="container-fluid">
+      <h1 class="text-center">Sign In to FundRaiser</h1>
+      <form class="mt-5 w-50 mx-auto" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="form-group">
+          <input type="email" class="form-control" name="mail" placeholder="Enter email" required>
+        </div><br>
+        <div class="form-group">
+          <input type="password" class="form-control" name="password" placeholder="Enter password" required>
+        </div><br>
+        <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+      </form>
+      <div class="text-center mt-3">
+        <a href="{% url 'core:reset' %}">Forgot your password?</a>
+      </div>
+      <div class="text-center mt-3">
+        <a href="{% url 'core:sign_up' %}" class="text-primary">Don't have an account? Sign up</a>
+      </div>
+    </div>
+{% endblock %}

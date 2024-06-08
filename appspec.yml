@@ -1,8 +1,5 @@
 version: 0.0
 os: linux
-files:
-  - source: /
-    destination: /opt/application
 hooks:
   ApplicationStop:
     - location: stop_container.sh

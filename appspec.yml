@@ -4,10 +4,6 @@ files:
   - source: /
     destination: /opt/application
 hooks:
-  BeforeInstall:
-    - location: clean_old_deployments.sh
-      timeout: 300
-      runas: root
   ApplicationStop:
     - location: stop_container.sh
       timeout: 300
